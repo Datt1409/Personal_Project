@@ -21,6 +21,7 @@ export default defineConfig({
       input: {
         index: path.resolve(__dirname, "src", "index.html"),
         Men: path.resolve(__dirname, "src", "Men.html"),
+        Women: path.resolve(__dirname, "src", "women.html"),
         blog: path.resolve(__dirname, "src", "blog.html"),
         singleproduct: path.resolve(__dirname, "src", "single-product.html"),
         login: path.resolve(__dirname, "src", "login.html"),
