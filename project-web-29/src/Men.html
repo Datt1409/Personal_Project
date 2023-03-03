@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cara Watch</title>
+    <link
+      rel="shortcut icon"
+      href="/images/logo_favicon.png"
+      type="image/x-icon"
+    />
+    <!-- Import icon fontawesome -->
+    <link rel="stylesheet" href="./lib/fontawesome/css/brands.css" />
+    <link rel="stylesheet" href="./lib/fontawesome/css/solid.css" />
+    <link rel="stylesheet" href="./lib/fontawesome/css/fontawesome.css" />
+
+    <!-- Import box icon -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header start -->
+    <section id="header" class="container-fluid">
+      <a href="index.html">
+        <img src="/images/logo.png" class="logo" alt="Icon" />
+      </a>
+
+      <div>
+        <ul id="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a class="active" href="Men.html">Men</a></li>
+          <li><a href="women.html">Women</a></li>
+          <li><a href="blog.html">Blog</a></li>
+
+          <li><a href="contact.html">Contact</a></li>
+          <a href="#" id="close"><i class="fa-regular fa-xmark"></i></a>
+        </ul>
+      </div>
+
+      <div id="info-form">
+        <form class="search-form">
+          <input class="search-item" type="text" placeholder="Search" />
+          <a href="#" class="search-icon"
+            ><i class="fa-solid fa-magnifying-glass"></i
+          ></a>
+        </form>
+
+        <div class="cart-form">
+          <a href="cart.html"><i class="fa-regular fa-bag-shopping"></i></a>
+          <span class="cart-quantity">0</span>
+        </div>
+
+        <div class="login-form">
+          <a href="login.html"><i class="fa-solid fa-user"></i></a>
+        </div>
+      </div>
+
+      <div id="mobile">
+        <!-- <a href="cart.html"><i class="fa-regular fa-bag-shopping"></i></a> -->
+        <i class="bar-icon fa-solid fa-bars"></i>
+      </div>
+    </section>
+
+    <!-- shop banner -->
+    <section id="shop-banner" class="container-fluid"></section>
+
+    <h2 class="shop-heading">MEN'S WATCH</h2>
+    <div class="filter container">
+      <label>Collection:</label>
+      <select id="product-filter">
+        <option value="all">All</option>
+        <option value="KASHMIR">Kashmir</option>
+        <option value="WEIMAR">Weimar</option>
+        <option value="DETROIT">Detroit</option>
+        <option value="FUTURA">Futura</option>
+        <option value="COLOSSEUM">Colosseum</option>
+      </select>
+    </div>
+
+    <section id="shop" class="best-seller container section-p1">
+      <!-- <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="product">
+              <img src="/images/KASHMIR/calm.png" alt="Kashmir Calm" />
+              <div class="description">
+                <span>KASHMIR</span>
+                <h5>CALM</h5>
+                <h4>$78</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="product">
+              <img src="/images/WEIMAR/heinz.png" alt="Weimar Heinz" />
+              <div class="description">
+                <span>WEIMAR</span>
+                <h5>HEINZ</h5>
+                <h4>$79</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="product">
+              <img src="/images/DETROIT/I275.png" alt="Detroit I-275" />
+              <div class="description">
+                <span>DETROIT</span>
+                <h5>I-275</h5>
+                <h4>$80</h4>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="product">
+              <img
+                src="/images/DETROIT/8mile.png"
+                alt="Detroit 8 MILE"
+              />
+              <div class="description">
+                <span>DETROIT</span>
+                <h5>8 MILE</h5>
+                <h4>$81</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </section>
+
+    <!-- Page numbering -->
+    <section id="pagination" class="section-p1"></section>
+
+    <!-- News letter -->
+    <section id="news-letter" class="section-p1 section-m1">
+      <div class="news-text">
+        <h4>Sign up for newsletters</h4>
+        <p>
+          Get E-mail updates about our latest shop and
+          <span>special offers.</span>
+        </p>
+      </div>
+
+      <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button>Sign Up</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="/images/logo.png" alt="" />
+        <h4>Contact</h4>
+        <p>
+          <strong>Address: </strong>Nam Từ Liêm: Tầng 12A, Viwaseen Tower, 48 Tố
+          Hữu
+        </p>
+        <p><strong>Phone: </strong>0987654321</p>
+        <p><strong>Hour: </strong>9:00 - 17:00, Mon - Sat</p>
+        <div class="follow">
+          <h4>Follow us</h4>
+          <div class="icon">
+            <i class="fa-brands fa-facebook-f"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-pinterest"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About us</a>
+        <a href="#">Delivery information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact us</a>
+      </div>
+
+      <div class="col">
+        <h4>My account</h4>
+        <a href="#">Sign in</a>
+        <a href="#">View cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row1">
+          <img src="/images/pay/app.jpg" alt="" />
+          <img src="/images/pay/play.jpg" alt="" />
+        </div>
+        <p>Secure Payment Gateways</p>
+        <img src="/images/pay/pay.png" alt="" />
+      </div>
+    </footer>
+
+    <!-- Import shop js -->
+    <script type="module" src="assets/js/shop.js"></script>
+  </body>
+</html>
