@@ -26,7 +26,7 @@ const generateProduct = () => {
      <div class="description">
       <span>${title}</span>
       <h5>${name}</h5>
-      <h4>${price} đ</h4>
+      <h4>${price} $</h4>
      </div>
   </div>
  </div>`;
