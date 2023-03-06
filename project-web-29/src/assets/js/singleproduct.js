@@ -2,6 +2,7 @@ import "../css/style.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import products from "./products.js";
 import { toggleBarIcon } from "./main.js";
+import { addtoStorage } from "./localstorage";
 // import { addToCart } from "./shop.js";
 
 toggleBarIcon();
@@ -29,7 +30,7 @@ function render(product) {
       <div class="product-description">
         <h5>${title}</h5>
         <h3>${name}</h3>
-        <h6>${price}</h6>
+        <h6>${price}$</h6>
         <p>Status:<span class="text-green"> Available</span></p>
         <div class="line"></div>
         <p>Sale off up to<span class="text-red"> 30% </span>for accessories</p>
@@ -74,35 +75,38 @@ function render(product) {
   });
 }
 
-export const addToCart = (productId) => {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  const addBtn = document.querySelectorAll(".add-to-cart");
-  let cartQuantity = document.querySelector(".cart-quantity");
-  let result = 0;
-  for (let item of cart) {
-    result += item.quantity;
-  }
-  addBtn.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      console.log(productId);
-      const index = cart.findIndex((obj) => obj.id === id);
-      if (index !== -1) {
-        cart[index].quantity++;
-      } else {
-        cart.push({
-          id: productId,
-          quantity: 1,
-        });
-      }
-      localStorage.setItem("cart", JSON.stringify(cart));
-      result++;
-      result < 10
-        ? (cartQuantity.innerText = result)
-        : (cartQuantity.innerText = 9 + "+");
-    });
-  });
-  result < 10
-    ? (cartQuantity.innerText = result)
-    : (cartQuantity.innerText = 9 + "+");
-};
-addToCart(id);
+// export const addToCart = (productId) => {
+//   let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//   const addBtn = document.querySelectorAll(".add-to-cart");
+//   let cartQuantity = document.querySelector(".cart-quantity");
+//   let result = 0;
+//   for (let item of cart) {
+//     result += item.quantity;
+//   }
+//   addBtn.forEach((btn) => {
+//     btn.addEventListener("click", () => {
+//       console.log(productId);
+//       const index = cart.findIndex((obj) => obj.id === id);
+//       if (index !== -1) {
+//         cart[index].quantity++;
+//       } else {
+//         cart.push({
+//           id: productId,
+//           quantity: 1,
+//         });
+//       }
+//       localStorage.setItem("cart", JSON.stringify(cart));
+//       result++;
+//       result < 10
+//         ? (cartQuantity.innerText = result)
+//         : (cartQuantity.innerText = 9 + "+");
+//     });
+//   });
+//   result < 10
+//     ? (cartQuantity.innerText = result)
+//     : (cartQuantity.innerText = 9 + "+");
+// };
+// addToCart(id);
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+addtoStorage(cart);

@@ -2,12 +2,16 @@ import "../css/style.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import products from "./products.js";
 import { toggleBarIcon } from "./main.js";
+import { addtoStorage } from "./localstorage";
 
 toggleBarIcon();
+const totalPriceTag = document.querySelector(".total-price");
 
 const updateCart = (cart) => {
   localStorage.setItem("cart", JSON.stringify(cart));
 };
+
+let cartQuantity = document.querySelector(".cart-quantity");
 
 const renderCart = () => {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -51,6 +55,7 @@ const updateQuantityAndTotal = (productId, quantity) => {
   const quantityElement = document.getElementById(`quantity-${productId}`);
   const subTotalElement = document.getElementById(`sub-total-${productId}`);
   const product = products.find((p) => p.id === parseInt(productId));
+  console.log(product);
   const subTotal = product.price * quantity;
   quantityElement.innerHTML = quantity;
   subTotalElement.innerHTML = `${subTotal} $`;
@@ -64,6 +69,66 @@ const updateQuantityAndTotal = (productId, quantity) => {
   updateCart(cart);
 };
 
+// const increment = () => {
+//   const plus = document.querySelectorAll(".plus-icon");
+//   plus.forEach((btn) => {
+//     btn.addEventListener("click", () => {
+//       const productId = btn.getAttribute("data-product-id");
+//       const quantityElement = document.getElementById(`quantity-${productId}`);
+//       let quantity = parseInt(quantityElement.innerHTML);
+//       quantity++;
+//       if (quantity < 10) {
+//         cartQuantity.innerText = quantity;
+//       } else cartQuantity.innerText = "9+";
+//       updateQuantityAndTotal(productId, quantity);
+//       let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//       let result = 0;
+//       cart.forEach((item) => {
+//         result += item.quantity;
+//       });
+//       // cartQuantity.innerText = result;
+//     });
+//   });
+// };
+
+// increment();
+
+// const decrement = () => {
+//   const minus = document.querySelectorAll(".minus-icon");
+//   minus.forEach((btn) => {
+//     btn.addEventListener("click", () => {
+//       const productId = btn.getAttribute("data-product-id");
+//       const quantityElement = document.getElementById(`quantity-${productId}`);
+//       let quantity = parseInt(quantityElement.innerHTML);
+//       if (quantity > 1) {
+//         quantity--;
+//         updateQuantityAndTotal(productId, quantity);
+//         let cart = JSON.parse(localStorage.getItem("cart")) || [];
+//         let result = 0;
+//         cart.forEach((item) => {
+//           if (item.id === productId) {
+//             item.quantity = quantity;
+//           }
+//           result += item.quantity;
+//         });
+//         localStorage.setItem("cart", JSON.stringify(cart));
+//         cartQuantity.innerText = result;
+//       }
+//     });
+//   });
+// };
+
+// decrement();
+
+const updateCartQuantity = () => {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let result = 0;
+  cart.forEach((item) => {
+    result += item.quantity;
+  });
+  cartQuantity.innerText = result < 10 ? result : "9+";
+};
+
 const increment = () => {
   const plus = document.querySelectorAll(".plus-icon");
   plus.forEach((btn) => {
@@ -72,12 +137,20 @@ const increment = () => {
       const quantityElement = document.getElementById(`quantity-${productId}`);
       let quantity = parseInt(quantityElement.innerHTML);
       quantity++;
-      updateQuantityAndTotal(productId, quantity);
+      // countPrice();
+      if (quantity < 10) {
+        quantityElement.innerHTML = quantity;
+        updateQuantityAndTotal(productId, quantity);
+        updateCartQuantity();
+      } else {
+        quantityElement.innerHTML = "9+";
+        updateQuantityAndTotal(productId, quantity);
+        updateCartQuantity();
+      }
+      countPrice();
     });
   });
 };
-
-increment();
 
 const decrement = () => {
   const minus = document.querySelectorAll(".minus-icon");
@@ -86,15 +159,25 @@ const decrement = () => {
       const productId = btn.getAttribute("data-product-id");
       const quantityElement = document.getElementById(`quantity-${productId}`);
       let quantity = parseInt(quantityElement.innerHTML);
-      if (quantity > 0) {
+      if (quantity > 1) {
         quantity--;
+        quantityElement.innerHTML = quantity;
         updateQuantityAndTotal(productId, quantity);
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cart.find((item) => item.id === productId).quantity = quantity;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartQuantity();
+        countPrice();
+
+        // countPrice();
       }
     });
   });
 };
 
+increment();
 decrement();
+updateCartQuantity();
 
 const removeItem = () => {
   const removeButtons = document.querySelectorAll(".remove-button");
@@ -106,9 +189,55 @@ const removeItem = () => {
       let cart = JSON.parse(localStorage.getItem("cart")) || [];
       cart = cart.filter((item) => item.id !== productId);
       updateCart(cart);
+      countPrice();
+
+      // countPrice();
+      let result = 0;
+      cart.forEach((item) => {
+        result += item.quantity;
+      });
+      cartQuantity.innerText = result;
     });
   });
 };
 
 removeItem();
 
+const countPrice = () => {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let total = 0;
+  cart.map((item) => {
+    const productId = parseInt(item.id);
+    console.log(productId);
+    for (let product of products) {
+      if (productId === product.id) {
+        total += product.price * item.quantity;
+      }
+    }
+  });
+  totalPriceTag.innerText = total + "$";
+};
+countPrice();
+
+// const totalPrice = () => {
+//   const table = document.querySelector(".subtotal");
+
+//   table.innerHTML = `<h3>Total</h3>
+//         <table>
+//           <tr>
+//             <td>Cart Subtotal</td>
+//             <td>300$</td>
+//           </tr>
+//           <tr>
+//             <td>Shipping</td>
+//             <td>Free</td>
+//           </tr>
+//           <tr>
+//             <td><strong>Total</strong></td>
+//             <td><strong>${countPrice()}$</strong></td>
+//           </tr>
+//         </table>
+//         <button type="button">Proceed to checkout</button>`;
+// };
+
+// totalPrice();
