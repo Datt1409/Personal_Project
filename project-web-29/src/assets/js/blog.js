@@ -1,6 +1,6 @@
 import "../css/style.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import { toggleBarIcon } from "./main.js";
+import { toggleBarIcon } from "./toggleBarIcon.js";
 
 toggleBarIcon();
 

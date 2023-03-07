@@ -1,4 +1,5 @@
 export function addtoStorage(cart) {
+  // let cart = JSON.parse(localStorage.getItem("cart")) || [];
   const addBtn = document.querySelectorAll(".add-to-cart");
   let cartQuantity = document.querySelector(".cart-quantity");
   let result = 0;

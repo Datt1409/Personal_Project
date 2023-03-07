@@ -1,8 +1,7 @@
 import products from "./products";
 import "../css/style.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import { toggleBarIcon } from "./main.js";
-
+import { toggleBarIcon } from "./toggleBarIcon";
 toggleBarIcon();
 
 // Rendering Products
@@ -26,7 +25,7 @@ const generateProduct = () => {
      <div class="description">
       <span>${title}</span>
       <h5>${name}</h5>
-      <h4>${price} $</h4>
+      <h4>$${price}</h4>
      </div>
   </div>
  </div>`;

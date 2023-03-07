@@ -1,8 +1,8 @@
 import products from "./products";
 import "../css/style.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import { toggleBarIcon } from "./main.js";
-import { addtoStorage } from "./localstorage";
+import { toggleBarIcon } from "./toggleBarIcon";
+import { addtoStorage } from "./localstorage.js";
 toggleBarIcon();
 
 // Rendering Products
@@ -26,7 +26,7 @@ const generateProduct = () => {
      <div class="description">
       <span>${title}</span>
       <h5>${name}</h5>
-      <h4>${price} $</h4>
+      <h4>$${price}</h4>
      </div>
   </div>
  </div>`;
@@ -62,5 +62,9 @@ function getSelectedValue() {
 }
 getSelectedValue();
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+if (!Array.isArray(cart)) {
+  // Convert cart to an array
+  cart = [cart];
+}
 
 addtoStorage(cart);

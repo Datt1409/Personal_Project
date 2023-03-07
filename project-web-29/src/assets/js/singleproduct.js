@@ -1,7 +1,7 @@
 import "../css/style.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import products from "./products.js";
-import { toggleBarIcon } from "./main.js";
+import { toggleBarIcon } from "./toggleBarIcon";
 import { addtoStorage } from "./localstorage";
 // import { addToCart } from "./shop.js";
 
@@ -30,7 +30,7 @@ function render(product) {
       <div class="product-description">
         <h5>${title}</h5>
         <h3>${name}</h3>
-        <h6>${price}$</h6>
+        <h6>$${price}</h6>
         <p>Status:<span class="text-green"> Available</span></p>
         <div class="line"></div>
         <p>Sale off up to<span class="text-red"> 30% </span>for accessories</p>
@@ -40,7 +40,7 @@ function render(product) {
             <div class="accessory-info">
               <img src="/images/accessory_1.png" alt="" />
               <span>Rosie Rosegold</span>
-              <span>+ 320.000 đ</span>
+              <span>+ $16</span>
             </div>
             <button class="btn-add">+ Add</button>
           </div>
@@ -48,7 +48,7 @@ function render(product) {
             <div class="accessory-info">
               <img src="/images/accessory_2.png" alt="" />
               <span>Golden Rign</span>
-              <span>+ 330.000 đ</span>
+              <span>+ $15</span>
             </div>
             <button class="btn-add">+ Add</button>
           </div>

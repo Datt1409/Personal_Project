@@ -1,12 +1,10 @@
 import "../css/style.css";
-
 import "bootstrap/dist/js/bootstrap.min.js";
-import { toggleBarIcon } from "./main.js";
-
+import { toggleBarIcon } from "./toggleBarIcon.js";
 toggleBarIcon();
 
 // Login form
-const loginForm = () => {
+ const loginForm = () => {
   const forms = document.querySelector(".forms-container"),
     pwShowHide = document.querySelectorAll(".eye-icon"),
     links = document.querySelectorAll(".link");
@@ -38,4 +36,4 @@ const loginForm = () => {
 
 loginForm();
 
-export { loginForm };
+
