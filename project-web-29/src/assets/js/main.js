@@ -56,7 +56,7 @@ menBestSeller();
 
 const womenBestSeller = () => {
   const women = document.querySelector(".best-seller.women");
-  women.innerHTML = `<h2>MEN'S BEST SELLERS</h2>
+  women.innerHTML = `<h2>WOMEN'S BEST SELLERS</h2>
       <a href="Men.html">
         <p>View all <i class="fa-regular fa-right-long right-icon"></i></p>
       </a>
